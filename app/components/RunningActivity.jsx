@@ -7,6 +7,9 @@ var RunningActivity = React.createClass({
 		ActivityInformation.miles = this.refs.miles.value;
 		ActivityInformation.duration = this.refs.duration.value;
 		ActivityInformation.date = this.refs.date.value;
+		this.refs.miles.value = "";
+		this.refs.date.value = "";
+		this.refs.duration.value = "";
 		this.props.onNewActivity(ActivityInformation);
 	},
 	render: function() {
