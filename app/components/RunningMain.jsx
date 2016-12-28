@@ -36,14 +36,22 @@ var RunningMain = React.createClass({
       ]
     })
   },
+  handleRemove: function(id) {
+    var newArray = this.state.records.filter(function(x) {
+      return x.id!==id;
+    })
+    this.setState({
+      records: newArray
+    })
+  },
   render: function () {
     var {records} = this.state;
 
     return (
       <div>
         <h1>Mile Tracker</h1>
-        <RunningHistory records={records}/>
-        <RunningActivity onNewActivity= {this.handleNewActivity}/>
+        <RunningHistory records={records} removeNode={this.handleRemove}/>
+        <RunningActivity onNewActivity= {this.handleNewActivity} />
       </div>
     )
   }
