@@ -10,7 +10,7 @@ var SingleRecord = React.createClass({
     	var {id, miles, duration, date} = this.props;
     	return (
       		<div >
-         		Number Of Miles {miles}|| Duration {duration}.|| Date {date} <button onClick = {this.OnDelete} color = "red" className="button tiny">Cancel</button>
+         		<h3 className = "h3"><span className = "miletag">{miles} </span> mi ||  <span className = "durationtag">{duration} </span> minutes || <span className = "datetag">{date} </span> Date </h3> <button onClick = {this.OnDelete} className="button tiny">Cancel</button>
 
 	      </div>
     	)

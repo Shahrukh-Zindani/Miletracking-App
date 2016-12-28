@@ -1,27 +1,19 @@
 var React = require('react');
+var uuid = require('uuid');
+
 var RunningHistory = require('RunningHistory');
 var RunningActivity = require('RunningActivity');
-var uuid = require('uuid');
+var RunningAppApi = require('RunningAppApi');
+
 
 var RunningMain = React.createClass({
   getInitialState: function () {
     return {
-      records: [
-        {
-          id: uuid(),
-          miles: 3.0,
-          duration: '30 minutes'
-        }, {
-          id: uuid(),
-          miles: 4.0,
-          duration: '40 minutes'
-        }, {
-          id: uuid(),
-          miles: 5.0,
-          duration: '50 minutes'
-        }
-      ]
+      records: RunningAppApi.getRecords()
     };
+  },
+  componentDidUpdate: function() {
+    RunningAppApi.setRecords(this.state.records)
   },
   handleNewActivity: function(update) {
     this.setState({
@@ -48,10 +40,17 @@ var RunningMain = React.createClass({
     var {records} = this.state;
 
     return (
-      <div>
-        <h1>Mile Tracker</h1>
-        <RunningHistory records={records} removeNode={this.handleRemove}/>
-        <RunningActivity onNewActivity= {this.handleNewActivity} />
+     <div>
+        <h1 className = 'page-title'>Mile Tracker</h1>
+        <div className = 'row'>
+          <div className = 'column medium-centered small-11 medium-6 large-6 '>
+            <div className = 'container'>
+              <RunningActivity onNewActivity= {this.handleNewActivity} />
+              <RunningHistory records={records} removeNode={this.handleRemove}/>
+              
+             </div>
+          </div>
+        </div>     
       </div>
     )
   }

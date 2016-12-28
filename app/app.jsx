@@ -3,7 +3,7 @@ var ReactDOM = require('react-dom');
 var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 
 var RunningMain = require('RunningMain');
-
+// import './playground/firebase';
 // Load foundation
 $(document).foundation();
 
