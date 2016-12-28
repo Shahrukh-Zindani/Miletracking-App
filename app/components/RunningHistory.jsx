@@ -7,7 +7,7 @@ var RunningHistory = React.createClass({
     var renderTodos = () => {
       return records.map((record) => {
         return (
-          <SingleRecord key={record.id} miles = {record.miles} duration = {record.duration} id = {record.id}/>
+          <SingleRecord key={record.id} miles = {record.miles} duration = {record.duration} id = {record.id} date = {record.date}/>
         );
       });
     };

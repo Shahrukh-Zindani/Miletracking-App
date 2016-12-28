@@ -2,11 +2,11 @@ var React = require('react');
 
 var SingleRecord = React.createClass({
   render: function () {
-    var {id, miles, duration} = this.props;
-
+    var {id, miles, duration, date} = this.props;
     return (
       <div>
-        {id}. Number Of Miles {miles} Duration {duration} . 
+         Number Of Miles {miles}|| Duration {duration}.|| Date {date}
+
       </div>
     )
   }
